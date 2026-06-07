@@ -1,4 +1,4 @@
-CREATE TABLE dictionary.radicals (
+CREATE TABLE dictionary__radicals (
     id INTEGER PRIMARY KEY,
 
     radical_id INTEGER NOT NULL UNIQUE,

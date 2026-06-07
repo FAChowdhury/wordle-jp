@@ -1,4 +1,4 @@
-CREATE TABLE characters.kanji (
+CREATE TABLE characters__kanji (
     id INTEGER PRIMARY KEY,
 
     character TEXT NOT NULL UNIQUE,

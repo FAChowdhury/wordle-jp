@@ -1,4 +1,4 @@
-CREATE TABLE characters.kanji_radicals (
+CREATE TABLE characters__kanji_radicals (
     id INTEGER PRIMARY KEY,
 
     kanji_id INTEGER NOT NULL,

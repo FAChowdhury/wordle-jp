@@ -1,4 +1,4 @@
-CREATE TABLE dictionary.kanji (
+CREATE TABLE dictionary__kanji (
     id INTEGER PRIMARY KEY,
 
     kanji_id INTEGER NOT NULL UNIQUE,

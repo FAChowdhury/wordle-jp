@@ -1,4 +1,4 @@
-CREATE TABLE classification.kanji (
+CREATE TABLE classification__kanji (
     id INTEGER PRIMARY KEY,
 
     kanji_id INTEGER NOT NULL UNIQUE,

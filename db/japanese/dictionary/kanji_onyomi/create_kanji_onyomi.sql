@@ -1,4 +1,4 @@
-CREATE TABLE dictionary.kanji_onyomi (
+CREATE TABLE dictionary__kanji_onyomi (
     id INTEGER PRIMARY KEY,
 
     kanji_id INTEGER NOT NULL,

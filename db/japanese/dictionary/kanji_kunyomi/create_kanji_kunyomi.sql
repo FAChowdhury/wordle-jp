@@ -1,4 +1,4 @@
-CREATE TABLE dictionary.kanji_kunyomi (
+CREATE TABLE dictionary__kanji_kunyomi (
     id INTEGER PRIMARY KEY,
 
     kanji_id INTEGER NOT NULL,

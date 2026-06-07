@@ -1,4 +1,4 @@
-CREATE TABLE characters.radicals (
+CREATE TABLE characters__radicals (
     id INTEGER PRIMARY KEY,
 
     character TEXT NOT NULL UNIQUE,
