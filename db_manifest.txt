@@ -1,0 +1,24 @@
+# ==================================================
+# Level 0: Base entities
+# ==================================================
+db/japanese/characters/kanji/create_kanji.sql
+db/japanese/characters/radicals/create_radicals.sql
+
+
+# ==================================================
+# Level 1: Character structure
+# ==================================================
+db/japanese/characters/kanji_radicals/create_kanji_radicals.sql
+
+db/japanese/dictionary/kanji/create_kanji.sql
+db/japanese/dictionary/radicals/create_radicals.sql
+
+db/japanese/classification/kanji/create_kanji.sql
+
+
+# ==================================================
+# Level 2: Dictionary expansions
+# ==================================================
+db/japanese/dictionary/kanji_meaning/create_kanji_meaning.sql
+db/japanese/dictionary/kanji_onyomi/create_kanji_onyomi.sql
+db/japanese/dictionary/kanji_kunyomi/create_kanji_kunyomi.sql
