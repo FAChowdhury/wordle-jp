@@ -1,29 +1,26 @@
 #!/usr/bin/env bash
-
 set -euxo pipefail
-
-DB="japanese.db"
 
 ROOT_DIR="$(git rev-parse --show-toplevel)"
 cd "$ROOT_DIR"
 
+DB="japanese.db"
 rm -f "$DB"
 
-# level 0
-sqlite3 "$DB" < db/japanese/characters/kanji/create_kanji.sql
-sqlite3 "$DB" < db/japanese/characters/radicals/create_radicals.sql
+MANIFEST="db_manifest.txt"
 
-# level 1
-sqlite3 "$DB" < db/japanese/characters/kanji/create_kanji_readings.sql
+echo "Building SQLite database from db_manifest.txt ..."
 
-sqlite3 "$DB" < db/japanese/dictionary/kanji/create_kanji.sql
-sqlite3 "$DB" < db/japanese/dictionary/radicals/create_radicals.sql
+{
+  echo "PRAGMA foreign_keys = ON;"
 
-sqlite3 "$DB" < db/japanese/classification/kanji/create_kanji.sql
+  while IFS= read -r file; do
+    [[ -z "$file" ]] && continue
+    [[ "$file" =~ ^# ]] && continue
 
-# level 2
-sqlite3 "$DB" < db/japanese/dictionary/kanji_meaning/create_kanji_meaning.sql
-sqlite3 "$DB" < db/japanese/dictionary/kanji_onyomi/create_kanji_onyomi.sql
-sqlite3 "$DB" < db/japanese/dictionary/kanji_kunyomi/create_kanji_kunyomi.sql
+    echo ".read $file"
+  done < "$MANIFEST"
+
+} | sqlite3 "$DB"
 
 echo "Database built successfully"

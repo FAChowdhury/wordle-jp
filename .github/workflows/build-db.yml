@@ -1,0 +1,27 @@
+name: Build japanese.db SQLite Database
+
+on:
+  push:
+    branches:
+      - "**"   # runs on every branch push
+  pull_request:
+
+jobs:
+  build-db:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install SQLite
+        run: sudo apt-get update && sudo apt-get install -y sqlite3
+
+      - name: Run build script
+        run: bash scripts/build_db.sh
+
+      - name: Upload database artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: japanese-db
+          path: japanese.db
