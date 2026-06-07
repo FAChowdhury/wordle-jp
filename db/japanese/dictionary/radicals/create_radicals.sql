@@ -9,5 +9,5 @@ CREATE TABLE dictionary__radicals (
 
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    FOREIGN KEY (radical_id) REFERENCES characters.radicals(id)
+    FOREIGN KEY (radical_id) REFERENCES characters__radicals(id)
 );

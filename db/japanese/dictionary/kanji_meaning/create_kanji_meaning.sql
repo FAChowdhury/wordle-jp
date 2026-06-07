@@ -6,7 +6,7 @@ CREATE TABLE dictionary__kanji_meaning (
 
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    FOREIGN KEY (kanji_id) REFERENCES dictionary.kanji(id),
+    FOREIGN KEY (kanji_id) REFERENCES dictionary__kanji(id),
 
     UNIQUE (kanji_id, meaning)
 );

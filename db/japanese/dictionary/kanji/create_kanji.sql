@@ -8,5 +8,5 @@ CREATE TABLE dictionary__kanji (
 
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    FOREIGN KEY (kanji_id) REFERENCES characters.kanji(id)
+    FOREIGN KEY (kanji_id) REFERENCES characters__kanji(id)
 );

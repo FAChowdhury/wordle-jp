@@ -8,8 +8,8 @@ CREATE TABLE characters__kanji_radicals (
 
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    FOREIGN KEY (kanji_id) REFERENCES characters.kanji(id),
-    FOREIGN KEY (radical_id) REFERENCES characters.radicals(id),
+    FOREIGN KEY (kanji_id) REFERENCES characters__kanji(id),
+    FOREIGN KEY (radical_id) REFERENCES characters__radicals(id),
 
     UNIQUE (kanji_id, radical_id)
 );
