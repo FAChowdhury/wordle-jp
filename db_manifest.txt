@@ -8,7 +8,7 @@ db/japanese/characters/radicals/create_radicals.sql
 # ==================================================
 # Level 1: Character structure
 # ==================================================
-db/japanese/characters/kanji/create_kanji_readings.sql
+db/japanese/characters/kanji_radicals/create_kanji_radicals.sql
 
 db/japanese/dictionary/kanji/create_kanji.sql
 db/japanese/dictionary/radicals/create_radicals.sql
