@@ -1,0 +1,7 @@
+CREATE TABLE characters.radicals (
+    id INTEGER PRIMARY KEY,
+
+    character TEXT NOT NULL UNIQUE,
+
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
