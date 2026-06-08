@@ -4,7 +4,7 @@ CREATE TABLE dictionary__kanji (
     kanji_id INTEGER NOT NULL UNIQUE,
     
     en_name TEXT NOT NULL,
-    stroke_count INTEGER NOT NULL,
+    stroke_count INTEGER,
 
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 

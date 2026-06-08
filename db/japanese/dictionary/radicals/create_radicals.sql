@@ -5,7 +5,7 @@ CREATE TABLE dictionary__radicals (
     
     en_name TEXT NOT NULL,
     reading TEXT NOT NULL,
-    stroke_count INTEGER NOT NULL,
+    stroke_count INTEGER,
 
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
