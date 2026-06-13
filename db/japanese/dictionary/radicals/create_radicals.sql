@@ -4,8 +4,8 @@ CREATE TABLE dictionary__radicals (
     radical_id INTEGER NOT NULL UNIQUE,
     
     en_name TEXT NOT NULL,
-    reading TEXT NOT NULL,
-    stroke_count INTEGER NOT NULL,
+    reading TEXT,
+    stroke_count INTEGER,
 
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
