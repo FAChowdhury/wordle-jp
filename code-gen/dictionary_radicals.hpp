@@ -6,7 +6,7 @@
 
 namespace dictionary
 {
-    inline constexpr std::array<char32_t, RADICAL_COUNT> radicals = {
+    inline constexpr std::array<char32_t, RADICAL_COUNT> radicals {
         U'ナ',
         U'工',
         U'ナ',

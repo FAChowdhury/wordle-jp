@@ -82,7 +82,7 @@ radicals_hpp = """#pragma once
 
 namespace dictionary
 {
-    inline constexpr std::array<char32_t, RADICAL_COUNT> radicals = {
+    inline constexpr std::array<char32_t, RADICAL_COUNT> radicals {
 """
 
 radicals_lines = [f"        U'{r}'" for r in radicals]
@@ -97,17 +97,27 @@ radicals_hpp += """
 # -----------------------
 # 3. entries.hpp
 # -----------------------
-'''
 cur.execute("""
-SELECT kanji, offset, count
-FROM kanji_radical_index
-ORDER BY kanji
+SELECT
+    k.character,
+    COUNT(*) AS radical_count
+FROM characters__kanji k
+JOIN characters__kanji_radicals kr
+    ON kr.kanji_id = k.id
+GROUP BY k.id, k.character
+ORDER BY k.id;
 """)
 
-entries = cur.fetchall()
-'''
+rows = cur.fetchall()
 
 entries = []
+
+offset = 0
+
+for kanji, count in rows:
+    entries.append((kanji, offset, count))
+    offset += count
+
 entries_hpp = """#pragma once
 #include <array>
 #include <cstdint>
@@ -129,7 +139,7 @@ namespace dictionary {
 """
 
 entries_hpp += ",\n".join(
-    f"    {{ U'{k}', {{ {o}, {c} }} }}"
+    f"        {{ U'{k}', {{ {o}, {c} }} }}"
     for (k, o, c) in entries
 )
 
