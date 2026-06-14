@@ -365,3 +365,4 @@ FodyWeavers.xsd
 # SQLite build output
 japanese.db
 *.db
+build/
