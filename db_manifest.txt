@@ -1,9 +1,13 @@
 # ==================================================
+# Database object deployment
+# Execute these to create tables and schema objects (order preserved)
+# ==================================================
+
+# ==================================================
 # Level 0: Base entities
 # ==================================================
 db/japanese/characters/kanji/create_kanji.sql
 db/japanese/characters/radicals/create_radicals.sql
-
 
 # ==================================================
 # Level 1: Character structure
@@ -22,3 +26,34 @@ db/japanese/classification/kanji/create_kanji.sql
 db/japanese/dictionary/kanji_meaning/create_kanji_meaning.sql
 db/japanese/dictionary/kanji_onyomi/create_kanji_onyomi.sql
 db/japanese/dictionary/kanji_kunyomi/create_kanji_kunyomi.sql
+
+
+# ==================================================
+# Data deployment
+# Execute these after the database objects are created. Order matters (FKs).
+# ==================================================
+
+# ==================================================
+# Characters and radicals
+# ==================================================
+db/japanese/characters/kanji/insert_kanji.sql
+db/japanese/characters/radicals/insert_radicals.sql
+
+# ==================================================
+# Character relationships
+# ==================================================
+db/japanese/characters/kanji_radicals/insert_kanji_radicals.sql
+
+# ==================================================
+# Dictionary records
+# ==================================================
+db/japanese/dictionary/kanji/insert_kanji.sql
+db/japanese/dictionary/radicals/insert_radicals.sql
+
+
+# ==================================================
+# Dictionary expansions: meanings and readings
+# ==================================================
+db/japanese/dictionary/kanji_meaning/insert_kanji_meaning.sql
+db/japanese/dictionary/kanji_onyomi/insert_kanji_onyomi.sql
+db/japanese/dictionary/kanji_kunyomi/insert_kanji_kunyomi.sql
