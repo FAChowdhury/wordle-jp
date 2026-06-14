@@ -2,6 +2,8 @@
 #include <array>
 #include <cstdint>
 
+#include "dictionary_constants.hpp"
+
 namespace dictionary {
     struct RadicalRange {
         std::uint32_t offset;

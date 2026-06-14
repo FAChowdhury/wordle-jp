@@ -2,10 +2,69 @@
 #include <array>
 #include <cstdint>
 
+#include "dictionary_constants.hpp"
+
 namespace dictionary
 {
     inline constexpr std::array<char32_t, RADICAL_COUNT> radicals = {
-
+        U'ナ',
+        U'工',
+        U'ナ',
+        U'口',
+        U'ナ',
+        U'又',
+        U'气',
+        U'メ',
+        U'亠',
+        U'ハ',
+        U'ｲ',
+        U'木',
+        U'一',
+        U'亅',
+        U'丿',
+        U'ハ',
+        U'刀',
+        U'ｲ',
+        U'可',
+        U'ハ',
+        U'𠆢',
+        U'口',
+        U'十',
+        U'日',
+        U'月',
+        U'宀',
+        U'女',
+        U'女',
+        U'未',
+        U'木',
+        U'乚',
+        U'口',
+        U'儿',
+        U'ネ',
+        U'乚',
+        U'艹',
+        U'ｲ',
+        U'匕',
+        U'艹',
+        U'⺤',
+        U'木',
+        U'⺤',
+        U'女',
+        U'女',
+        U'子',
+        U'田',
+        U'丁',
+        U'犭',
+        U'艹',
+        U'田',
+        U'ｲ',
+        U'大',
+        U'田',
+        U'乚',
+        U'子',
+        U'乚',
+        U'艹',
+        U'𠆢',
+        U'ホ'
     };
-
 };

@@ -63,20 +63,22 @@ namespace dictionary {{
 # -----------------------
 # 2. radicals.hpp
 # -----------------------
-'''
 cur.execute("""
-SELECT radical
-FROM characters__kanji_radicals
-ORDER BY id
+SELECT
+    r.character
+FROM characters__kanji_radicals kr
+JOIN characters__radicals r
+    ON r.id = kr.radical_id
+ORDER BY kr.kanji_id, kr.radical_order;
 """)
 
-
 radicals = [r[0] for r in cur.fetchall()]
-'''
-radicals = []
+
 radicals_hpp = """#pragma once
 #include <array>
 #include <cstdint>
+
+#include "dictionary_constants.hpp"
 
 namespace dictionary
 {
@@ -85,11 +87,10 @@ namespace dictionary
 
 radicals_lines = [f"        U'{r}'" for r in radicals]
 if radicals_lines:
-    radicals_hpp += ",\n".join(radicals_lines) + "\n"
+    radicals_hpp += ",\n".join(radicals_lines)
 
 radicals_hpp += """
     };
-
 };
 """
 
@@ -110,6 +111,8 @@ entries = []
 entries_hpp = """#pragma once
 #include <array>
 #include <cstdint>
+
+#include "dictionary_constants.hpp"
 
 namespace dictionary {
     struct RadicalRange {
@@ -141,9 +144,9 @@ entries_hpp += """
 # -----------------------
 out_dir.mkdir(parents=True, exist_ok=True)
 
-(out_dir / "dictionary_constants.hpp").write_text(constants)
-(out_dir / "dictionary_radicals.hpp").write_text(radicals_hpp)
-(out_dir / "dictionary_entries.hpp").write_text(entries_hpp)
+(out_dir / "dictionary_constants.hpp").write_text(constants, encoding='utf-8')
+(out_dir / "dictionary_radicals.hpp").write_text(radicals_hpp, encoding='utf-8')
+(out_dir / "dictionary_entries.hpp").write_text(entries_hpp, encoding='utf-8')
 
 
 print("Generated all dictionary headers.")
